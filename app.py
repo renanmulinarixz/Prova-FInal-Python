@@ -22,10 +22,10 @@ else:
         grafico = px.pie(tabela, names='tipo_veiculo', values='quantidade', title=cidade)
         st.plotly_chart(grafico)
 
-    st.header('Gráficos extras')
-    st.plotly_chart(px.box(dados, x='id_municipio_nome', y='quantidade', title='Distribuição por município'))
-    st.plotly_chart(px.box(dados, x='tipo_veiculo', y='quantidade', title='Distribuição por tipo de veículo'))
-    totais = dados.groupby('id_municipio_nome', as_index=False)['quantidade'].sum()
-    st.plotly_chart(px.bar(totais, x='id_municipio_nome', y='quantidade', title='Total de veículos por município'))
+    with st.expander('Análises complementares', expanded=False):
+        st.plotly_chart(px.box(dados, x='id_municipio_nome', y='quantidade', title='Distribuição por município'))
+        st.plotly_chart(px.box(dados, x='tipo_veiculo', y='quantidade', title='Distribuição por tipo de veículo'))
+        totais = dados.groupby('id_municipio_nome', as_index=False)['quantidade'].sum()
+        st.plotly_chart(px.bar(totais, x='id_municipio_nome', y='quantidade', title='Total de veículos por município'))
 
 st.write('Fonte: https://basedosdados.org/')
