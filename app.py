@@ -29,4 +29,3 @@ else:
     st.plotly_chart(px.bar(totais, x='id_municipio_nome', y='quantidade', title='Total de veículos por município'))
 
 st.write('Fonte: https://basedosdados.org/')
-st.write('Janaína, bom trabalho! Obrigado pela ajuda nos estudos para a prova!')
